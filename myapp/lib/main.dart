@@ -135,11 +135,11 @@ class _HomePageState extends State<HomePage> {
           ),
           Positioned(
             top: 100,
-            right: 134,
+            right: 133,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
               child: Container(
-                padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                padding: EdgeInsets.fromLTRB(16, 5, 15, 5),
                 color: Colors.lightBlue,
                 child: Text(
                   'Hospitalized\n$hospitalized\n[Changes $newHospitalized]',
