@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
@@ -51,16 +53,21 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('CovidNow'),
+        title: Text(
+          'CovidNow',
+          style: TextStyle(
+            fontStyle: FontStyle.italic,
+          ),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.red[600],
+        backgroundColor: Colors.red[400],
       ),
       body: Stack(
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/covid.jpg"),
+                image: AssetImage("assets/isolation.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -69,14 +76,19 @@ class _HomePageState extends State<HomePage> {
             top: 30,
             right: 20,
             left: 20,
-            child: Container(
-              padding: EdgeInsets.fromLTRB(120, 5, 120, 5),
-              color: Colors.red[600],
-              child: Text(
-                'Cases\n$confirmed\n[Increase $newConfirmed]',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: Container(
+                padding: EdgeInsets.fromLTRB(120, 5, 120, 5),
+                color: Colors.red[400],
+                child: Text(
+                  'Cases\n$confirmed\n[Increase $newConfirmed]',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontStyle: FontStyle.italic,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -84,14 +96,19 @@ class _HomePageState extends State<HomePage> {
           Positioned(
             top: 100,
             left: 20,
-            child: Container(
-              padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
-              color: Colors.green,
-              child: Text(
-                'Recovered\n$recovered\n[Increase $newRecovered]',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: Container(
+                padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                color: Colors.green,
+                child: Text(
+                  'Recovered\n$recovered\n[Increase $newRecovered]',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontStyle: FontStyle.italic,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -99,29 +116,39 @@ class _HomePageState extends State<HomePage> {
           Positioned(
             top: 100,
             right: 20,
-            child: Container(
-              padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
-              color: Colors.blueGrey,
-              child: Text(
-                'Deaths\n$deaths\n[Increase $newDeaths]',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: Container(
+                padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                color: Colors.blueGrey,
+                child: Text(
+                  'Deaths\n$deaths\n[Increase $newDeaths]',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontStyle: FontStyle.italic,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
           ),
           Positioned(
             top: 100,
-            right: 138,
-            child: Container(
-              padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
-              color: Colors.lightBlue,
-              child: Text(
-                'Hospitalized\n$hospitalized\n[Changes $newHospitalized]',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
+            right: 134,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: Container(
+                padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                color: Colors.lightBlue,
+                child: Text(
+                  'Hospitalized\n$hospitalized\n[Changes $newHospitalized]',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontStyle: FontStyle.italic,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -130,9 +157,24 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Text('Post'),
-        backgroundColor: Colors.red[600],
+        child: Text(
+          'Post',
+          style: TextStyle(
+            color: Colors.white,
+            fontStyle: FontStyle.italic,
+          ),
+        ),
+        backgroundColor: Colors.red[400],
       ),
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        color: Colors.red[400],
+        child: Container(
+          height: 50.0,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      backgroundColor: Colors.grey[200],
     );
   }
 }
